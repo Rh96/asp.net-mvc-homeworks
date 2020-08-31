@@ -76,6 +76,12 @@ namespace SEDC.AspNet.Homework.Class02.App
                     name: "test_movie_route2",
                     template: "homework/movie/get-available/{isavailable:bool}",
                     defaults: new { controller = "Movie", action = "GetMovieByAvailable" });
+
+                // BONUS ROUTE
+                routes.MapRoute(
+                    name: "test_order_route2",
+                    template: "pizza/order/create-order/",
+                    defaults: new { controller = "Order", action = "CreateOrder"});
             });
         }
     }
