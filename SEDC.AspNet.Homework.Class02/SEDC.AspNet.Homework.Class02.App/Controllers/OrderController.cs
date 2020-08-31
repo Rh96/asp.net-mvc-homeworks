@@ -17,7 +17,7 @@ namespace SEDC.AspNet.Homework.Class02.App.Controllers
         [HttpPost]
         public IActionResult CreateOrder(Order request)
         {
-            return Json(request);
+            return RedirectToAction("Index", "Home");
         }
     }
 }
