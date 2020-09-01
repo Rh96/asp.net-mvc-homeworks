@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace SEDC.AspNet.Homework.Class02.App.Controllers
 {
+    [Route("product")]
     public class ProductController : Controller
     {
+        [HttpGet("get-product/{id:int}")]
         public IActionResult GetProductById(int id)
         {
             var testProduct = new
@@ -19,6 +21,7 @@ namespace SEDC.AspNet.Homework.Class02.App.Controllers
             return Json(testProduct);
         }
 
+        [HttpGet("get-product/{id:alpha}")]
         public IActionResult GetProductByName(string id)
         {
             var testProduct = new

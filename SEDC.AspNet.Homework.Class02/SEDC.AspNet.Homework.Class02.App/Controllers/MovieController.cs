@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace SEDC.AspNet.Homework.Class02.App.Controllers
 {
+    [Route("homework/movie")]
     public class MovieController : Controller
     {
+        [HttpGet("get-movies/{releasedate:datetime}")]
         public IActionResult GetMovieByDateTime(DateTime? releaseDate)
         {
             var testMovie = new
@@ -19,6 +21,7 @@ namespace SEDC.AspNet.Homework.Class02.App.Controllers
             return Json(testMovie);
         }
 
+        [HttpGet("get-available/{isavailable:bool}")]
         public IActionResult GetMovieByAvailable(bool isAvailable)
         {
             var testMovie = new

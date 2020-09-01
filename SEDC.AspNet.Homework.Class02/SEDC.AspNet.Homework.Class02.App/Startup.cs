@@ -55,33 +55,33 @@ namespace SEDC.AspNet.Homework.Class02.App
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
 
-                // PART ONE ROUTES
-                routes.MapRoute(
-                    name: "test_product_route",
-                    template: "product/get-product/{id:int}",
-                    defaults: new { controller = "Product", action = "GetProductById" });
+                //// PART ONE ROUTES
+                //routes.MapRoute(
+                //    name: "test_product_route",
+                //    template: "product/get-product/{id:int}",
+                //    defaults: new { controller = "Product", action = "GetProductById" });
 
-                routes.MapRoute(
-                    name: "test_product_route2",
-                    template: "product/get-product/{id:alpha}",
-                    defaults: new { controller = "Product", action = "GetProductByName" });
+                //routes.MapRoute(
+                //    name: "test_product_route2",
+                //    template: "product/get-product/{id:alpha}",
+                //    defaults: new { controller = "Product", action = "GetProductByName" });
 
-                // PART TWO ROUTES
-                routes.MapRoute(
-                    name: "test_movie_route",
-                    template: "homework/movie/get-movies/{releasedate:datetime}",
-                    defaults: new { controller = "Movie", action = "GetMovieByDateTime" });
+                //// PART TWO ROUTES
+                //routes.MapRoute(
+                //    name: "test_movie_route",
+                //    template: "homework/movie/get-movies/{releasedate:datetime}",
+                //    defaults: new { controller = "Movie", action = "GetMovieByDateTime" });
 
-                routes.MapRoute(
-                    name: "test_movie_route2",
-                    template: "homework/movie/get-available/{isavailable:bool}",
-                    defaults: new { controller = "Movie", action = "GetMovieByAvailable" });
+                //routes.MapRoute(
+                //    name: "test_movie_route2",
+                //    template: "homework/movie/get-available/{isavailable:bool}",
+                //    defaults: new { controller = "Movie", action = "GetMovieByAvailable" });
 
-                // BONUS ROUTE
-                routes.MapRoute(
-                    name: "test_order_route2",
-                    template: "pizza/order/create-order/",
-                    defaults: new { controller = "Order", action = "CreateOrder"});
+                //// BONUS ROUTE
+                //routes.MapRoute(
+                //    name: "test_order_route2",
+                //    template: "pizza/order/create-order/",
+                //    defaults: new { controller = "Order", action = "CreateOrder"});
             });
         }
     }
