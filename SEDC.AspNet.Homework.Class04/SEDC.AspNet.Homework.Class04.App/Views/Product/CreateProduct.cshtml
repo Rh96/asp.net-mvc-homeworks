@@ -1,0 +1,32 @@
+﻿@model CreateProductVM
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.Error
+    </div>
+}
+
+    <div class="row">
+        <div class="col-md-5">
+            <form asp-route="CreateProduct" method="post">
+                <div class="form-group">
+                    <h3>Product Info: </h3>
+
+                    <label asp-for="Name"></label>
+                    <input class="form-control" asp-for="Name" /> <br />
+
+                    <label asp-for="Description"></label>
+                    <input class="form-control" asp-for="Description" /> <br />
+
+                    <label asp-for="Price"></label>
+                    <input class="form-control" asp-for="Price" /> <br />
+
+                    <label asp-for="Category"></label>
+                    <select class="form-control" asp-for="Category" asp-items="Html.GetEnumSelectList<Category>()"></select> <br />
+
+                    <button type="submit" class="btn btn-primary">Create Product</button>
+                </div>
+            </form>
+        </div>
+    </div>
