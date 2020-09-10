@@ -15,6 +15,7 @@ namespace SEDC.AspNet.Homework.Class04.App.Controllers
         [HttpGet("Products")]
        public IActionResult Index()
         {
+            ViewBag.Error = TempData["Info"];
             
             var listOfProductsVM = new List<ProductVM>();
             foreach (var product in Database.Products)
@@ -51,9 +52,10 @@ namespace SEDC.AspNet.Homework.Class04.App.Controllers
         [HttpPost("CreateProduct")]
         public IActionResult CreateProduct(CreateProductVM createProduct)
         {
-            if (createProduct.Name.Length < 6)
+
+            if (!ModelState.IsValid)
             {
-                return RedirectToAction("CreateProduct", new { error = "The name must contain 6 character and can't be null!"});
+                return View(createProduct);
             }
 
             var product = new Product()
@@ -67,6 +69,29 @@ namespace SEDC.AspNet.Homework.Class04.App.Controllers
 
             Database.Products.Add(product);
             return View("ProductComplete");
+        }
+
+        [HttpGet("products/{id:int}")]
+        public IActionResult ProductDetails(int id)
+        {
+            var products = Database.Products.FirstOrDefault(p => p.Id == id);
+
+            if (products == null)
+            {
+                TempData["Info"] = $"The product with id: {id} does not exist!";
+                return RedirectToAction("Index");
+            }
+
+            var productVM = new ProductVM()
+            {
+                Id = products.Id,
+                Name = products.Name,
+                Description = products.Description,
+                Price = products.Price,
+                Category = products.Category
+            };
+
+            return View("Details", productVM);
         }
     }
 }

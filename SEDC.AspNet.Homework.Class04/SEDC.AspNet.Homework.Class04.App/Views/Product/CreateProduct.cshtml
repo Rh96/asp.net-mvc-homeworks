@@ -1,5 +1,10 @@
 ﻿@model CreateProductVM
 
+@{
+    ViewData["Title"] = "Create";
+}
+
+
 @if (ViewBag.Error != null)
 {
     <div class="alert alert-danger">
@@ -7,26 +12,29 @@
     </div>
 }
 
-    <div class="row">
-        <div class="col-md-5">
-            <form asp-route="CreateProduct" method="post">
-                <div class="form-group">
-                    <h3>Product Info: </h3>
+<div class="row">
+    <div class="col-md-5">
+        <form asp-route="CreateProduct" method="post">
+            <div class="form-group">
+                <h3>Product Info: </h3>
 
-                    <label asp-for="Name"></label>
-                    <input class="form-control" asp-for="Name" /> <br />
+                <label asp-for="Name"></label>
+                <input class="form-control" asp-for="Name" />
+                <span asp-validation-for="Name" class="text-danger"></span><br />
 
-                    <label asp-for="Description"></label>
-                    <input class="form-control" asp-for="Description" /> <br />
+                <label asp-for="Description"></label>
+                <input class="form-control" asp-for="Description" />
+                <span asp-validation-for="Description" class="text-danger"></span><br />
 
-                    <label asp-for="Price"></label>
-                    <input class="form-control" asp-for="Price" /> <br />
+                <label asp-for="Price"></label>
+                <input class="form-control" asp-for="Price" />
+                <span asp-validation-for="Price" class="text-danger"></span><br />
 
-                    <label asp-for="Category"></label>
-                    <select class="form-control" asp-for="Category" asp-items="Html.GetEnumSelectList<Category>()"></select> <br />
+                <label asp-for="Category"></label>
+                <select class="form-control" asp-for="Category" asp-items="Html.GetEnumSelectList<Category>()"></select> <br />
 
-                    <button type="submit" class="btn btn-primary">Create Product</button>
-                </div>
-            </form>
-        </div>
+                <button type="submit" class="btn btn-primary">Create Product</button>
+            </div>
+        </form>
     </div>
+</div>

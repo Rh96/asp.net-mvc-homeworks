@@ -1,7 +1,12 @@
 ﻿@model ProductListVM
 
 @{
-    ViewData["Title"] = "Store Page";
+    ViewData["Title"] = "Store App";
+}
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert-danger">@ViewBag.Error</div>
 }
 
 <h1>The Best Store App in our Country</h1>
@@ -12,4 +17,5 @@
 @foreach (var product in Model.Products)
 {
     <partial name="_productItemPartial" for="@product" />
+    <a asp-controller="Product" asp-action="ProductDetails" asp-route-id="@product.Id" class="btn btn-primary">Details</a>
 }
