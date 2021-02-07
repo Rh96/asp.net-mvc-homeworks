@@ -4,17 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BookListRazor.Model
+namespace BookListMVC.Models
 {
     public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
-        {
+        {}
 
-        }
-
-        public DbSet<Book> Book { get; set; }
-        public DbSet<Human> Human { get; set; }
+        public DbSet<Book> Books { get; set; }
     }
 }
